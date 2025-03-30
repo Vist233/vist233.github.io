@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello! I am Li Hao Cheng</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="side-nav">
+        <nav>
+            <ul>
+                <li><a href='#home' title="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href='#blog' title="Blog"><i class="fas fa-blog"></i></a></li>
+                <li><a href='#about' title="About Me"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section id="home">
+            <div class="content-wrapper">
+                <div class="banner full-height">
+                    <h1>Welcome to my digital space</h1>
+                    <p>Explore my thoughts, projects and journey through the world of technology</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="content-wrapper">
+                <h2>About Me</h2>
+                <p>I am Li Hao Cheng, a passionate developer interested in web technologies and creating beautiful digital experiences that merge form and function. My approach combines minimalist design with advanced functionality to create meaningful user experiences.</p>
+                <div class="resume-container">
+                    <iframe class="resume-frame" src="assets/resume.pdf#toolbar=0" title="My Resume"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <div class="content-wrapper">
+                <h2>Latest Articles</h2>
+                <div class="blog-directory">
+                    <div class="blog-card" style="--i:1">
+                        <div class="blog-image" style="background-image: url('images/blog-placeholder-1.jpg')"></div>
+                        <div class="blog-content">
+                            <h3>Getting Started with Web Development</h3>
+                            <p class="blog-date">March 25, 2025</p>
+                            <p class="blog-excerpt">My journey into web development and the essential tools every beginner should know...</p>
+                            <a href="blog/web-development.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card" style="--i:2">
+                        <div class="blog-image" style="background-image: url('images/blog-placeholder-2.jpg')"></div>
+                        <div class="blog-content">
+                            <h3>The Power of Dark Mode UI</h3>
+                            <p class="blog-date">March 18, 2025</p>
+                            <p class="blog-excerpt">Why dark interfaces are more than just a trend and how to implement them effectively...</p>
+                            <a href="blog/dark-mode-ui.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card" style="--i:3">
+                        <div class="blog-image" style="background-image: url('images/blog-placeholder-3.jpg')"></div>
+                        <div class="blog-content">
+                            <h3>Python for Data Analysis</h3>
+                            <p class="blog-date">March 10, 2025</p>
+                            <p class="blog-excerpt">Exploring how Python and its libraries can transform your approach to data...</p>
+                            <a href="blog/python-data-analysis.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="blog-navigation">
+                    <a href="blog/archives.html" class="blog-archive-link">View All Articles <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add active class to navigation links and handle intersection observers
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.side-nav a');
+            const sections = document.querySelectorAll('section');
+            
+            // Intersection Observer for sections
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Add in-view class for animation triggers
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        
+                        // Update active navigation link
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+            // Add smooth scrolling to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    // Smooth scroll to target section
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
