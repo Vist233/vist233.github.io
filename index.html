@@ -183,13 +183,17 @@
             // Add smooth scrolling to nav links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
+                    const href = this.getAttribute('href');
                     
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    // Smooth scroll to target section
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    // Only apply smooth scrolling to internal links (starting with #)
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        
+                        // Smooth scroll to target section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // External links will work with default browser navigation
                 });
             });
         });
