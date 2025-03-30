@@ -190,6 +190,8 @@ section h2::after {
   opacity: 0;
   transform: translateY(50px);
   animation: fadeInUp 1s ease 0.6s forwards;
+  line-height: 1.5;
+  padding-bottom: 10px; /* Add padding to ensure descenders like 'g' are fully visible */
 }
 
 /* About Section - Full screen with centered content */
@@ -628,6 +630,17 @@ section h2::after {
   transform: translateX(5px);
 }
 
+.email-display {
+  margin-bottom: 1.5rem;
+}
+
+.email-address {
+  color: var(--primary-color);
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+/* Keep the existing email-container class for other cases */
 .email-container {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 0.8rem 1rem;
@@ -637,12 +650,6 @@ section h2::after {
   justify-content: space-between;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.email-address {
-  color: var(--primary-color);
-  font-family: monospace;
-  font-size: 1rem;
 }
 
 .copy-email-btn {
