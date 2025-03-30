@@ -105,7 +105,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     tile.style.left = `${j * (cellSize + 15) + 15}px`;
                     tile.style.top = `${i * (cellSize + 15) + 15}px`;
                     
+                    // Add animation class for appearing
+                    tile.classList.add('tile-new');
+                    
                     gridContainer.appendChild(tile);
+                    
+                    // Remove the animation class after animation completes
+                    setTimeout(() => {
+                        tile.classList.remove('tile-new');
+                    }, 300);
                 }
             }
         }
@@ -164,6 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Find farthest position and next position with same value
         function findFarthestPosition(row, col) {
+            let previousRow = row;
+            let previousCol = col;
             let nextRow = row + vector.y;
             let nextCol = col + vector.x;
             
@@ -173,28 +183,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 nextCol >= 0 && nextCol < gridSize &&
                 grid[nextRow][nextCol] === 0
             ) {
-                row = nextRow;
-                col = nextCol;
-                nextRow = row + vector.y;
-                nextCol = col + vector.x;
+                previousRow = nextRow;
+                previousCol = nextCol;
+                nextRow = previousRow + vector.y;
+                nextCol = previousCol + vector.x;
             }
             
             // Check if next position has the same value (for merging)
-            let canMerge = false;
             if (
                 nextRow >= 0 && nextRow < gridSize &&
                 nextCol >= 0 && nextCol < gridSize &&
-                grid[nextRow][nextCol] === grid[row - vector.y][col - vector.x]
+                grid[nextRow][nextCol] === grid[row][col]
             ) {
-                canMerge = true;
+                return {
+                    farthest: {row: previousRow, col: previousCol},
+                    next: {row: nextRow, col: nextCol},
+                    canMerge: true
+                };
             }
             
             return {
-                farthest: {row, col},
+                farthest: {row: previousRow, col: previousCol},
                 next: {row: nextRow, col: nextCol},
-                canMerge
+                canMerge: false
             };
         }
+        
+        // Keep track of tiles that were merged
+        const mergedTiles = [];
         
         // Move tiles in the specified direction
         traverseGrid((i, j) => {
@@ -208,6 +224,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     grid[i][j] = 0;
                     score += value;
                     moved = true;
+                    
+                    // Record this position for animation
+                    mergedTiles.push({
+                        row: pos.next.row,
+                        col: pos.next.col,
+                        value: value
+                    });
+                    
                 } else if (pos.farthest.row !== i || pos.farthest.col !== j) {
                     // Move tile
                     grid[pos.farthest.row][pos.farthest.col] = grid[i][j];
@@ -216,6 +240,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+        
+        // If we moved, update display with animations
+        if (moved) {
+            // First update the grid display
+            updateDisplay();
+            
+            // Then add merge animations to tiles that were merged
+            mergedTiles.forEach(tile => {
+                const cellSize = (gridContainer.offsetWidth - (gridSize - 1) * 15) / gridSize;
+                const tileElements = document.querySelectorAll('.tile');
+                
+                tileElements.forEach(element => {
+                    const left = parseInt(element.style.left);
+                    const top = parseInt(element.style.top);
+                    
+                    const expectedLeft = tile.col * (cellSize + 15) + 15;
+                    const expectedTop = tile.row * (cellSize + 15) + 15;
+                    
+                    if (Math.abs(left - expectedLeft) < 5 && Math.abs(top - expectedTop) < 5) {
+                        element.classList.add('tile-merged');
+                        setTimeout(() => {
+                            element.classList.remove('tile-merged');
+                        }, 300);
+                    }
+                });
+            });
+            
+            // Update the score with animation
+            if (score > parseInt(scoreElement.textContent)) {
+                const scoreIncrease = score - parseInt(scoreElement.textContent);
+                const scoreAnimation = document.createElement('div');
+                scoreAnimation.classList.add('score-addition');
+                scoreAnimation.textContent = '+' + scoreIncrease;
+                document.querySelector('.score-box').appendChild(scoreAnimation);
+                
+                setTimeout(() => {
+                    scoreAnimation.remove();
+                }, 1000);
+            }
+        }
         
         return moved;
     }
@@ -280,8 +344,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (moved) {
-            addRandomTile();
-            updateDisplay();
+            setTimeout(() => {
+                addRandomTile();
+                
+                // Check game status after a short delay for animations
+                if (checkWin()) {
+                    gameMessage.querySelector('p').textContent = 'You Win!';
+                    gameMessage.classList.add('game-won');
+                    gameMessage.style.display = 'flex';
+                    gameMessage.classList.add('message-animation');
+                } else if (checkLose()) {
+                    gameMessage.querySelector('p').textContent = 'Game Over!';
+                    gameMessage.classList.remove('game-won');
+                    gameMessage.classList.add('game-over');
+                    gameMessage.style.display = 'flex';
+                    gameMessage.classList.add('message-animation');
+                }
+                
+                // Update score display
+                scoreElement.textContent = score;
+                
+                // Update best score if needed
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestScoreElement.textContent = bestScore;
+                    localStorage.setItem('bestScore', bestScore);
+                    bestScoreElement.classList.add('score-best-highlight');
+                    setTimeout(() => {
+                        bestScoreElement.classList.remove('score-best-highlight');
+                    }, 1000);
+                }
+                
+            }, 150); // Delay to allow movement animations to complete
         }
         
         e.preventDefault();
