@@ -13,8 +13,8 @@
         <nav>
             <ul>
                 <li><a href='#home' title="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href='#blog' title="Blog"><i class="fas fa-blog"></i></a></li>
                 <li><a href='#about' title="About Me"><i class="fas fa-user"></i></a></li>
+                <li><a href='#blog' title="Blog"><i class="fas fa-blog"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -41,41 +41,104 @@
 
         <section id="blog">
             <div class="content-wrapper">
-                <h2>Latest Articles</h2>
-                <div class="blog-directory">
-                    <div class="blog-card" style="--i:1">
-                        <div class="blog-image" style="background-image: url('images/blog-placeholder-1.jpg')"></div>
-                        <div class="blog-content">
-                            <h3>Getting Started with Web Development</h3>
-                            <p class="blog-date">March 25, 2025</p>
-                            <p class="blog-excerpt">My journey into web development and the essential tools every beginner should know...</p>
-                            <a href="blog/web-development.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                <h2>Connect With Me</h2>
+                <p class="social-intro">Follow me on these platforms to stay updated with my latest content and projects</p>
+                
+                <div class="platform-grid">
+                    <!-- Bilibili -->
+                    <div class="platform-card" style="--i:0;">
+                        <div class="platform-icon bilibili-icon">
+                            <i class="fab fa-bilibili"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h2>Bilibili</h2>
+                            <p>Watch my videos on technology, programming tutorials, and creative projects</p>
+                            <div class="platform-stats">
+                                <div class="stat">
+                                    <span class="stat-value">100+</span>
+                                    <span class="stat-label">Followers</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">25+</span>
+                                    <span class="stat-label">Videos</span>
+                                </div>
+                            </div>
+                            <a href="https://space.bilibili.com/3546802183735742" target="_blank" class="platform-link">
+                                Visit My Bilibili <span class="arrow">→</span>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="blog-card" style="--i:2">
-                        <div class="blog-image" style="background-image: url('images/blog-placeholder-2.jpg')"></div>
-                        <div class="blog-content">
-                            <h3>The Power of Dark Mode UI</h3>
-                            <p class="blog-date">March 18, 2025</p>
-                            <p class="blog-excerpt">Why dark interfaces are more than just a trend and how to implement them effectively...</p>
-                            <a href="blog/dark-mode-ui.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                    <!-- Zhihu -->
+                    <div class="platform-card" style="--i:1;">
+                        <div class="platform-icon zhihu-icon">
+                            <i class="fab fa-zhihu"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h2>Zhihu</h2>
+                            <p>Read my thoughts and answers on programming, technology, and professional development</p>
+                            <div class="platform-stats">
+                                <div class="stat">
+                                    <span class="stat-value">200+</span>
+                                    <span class="stat-label">Followers</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">50+</span>
+                                    <span class="stat-label">Answers</span>
+                                </div>
+                            </div>
+                            <a href="https://www.zhihu.com/people/vist-18" target="_blank" class="platform-link">
+                                Visit My Zhihu <span class="arrow">→</span>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="blog-card" style="--i:3">
-                        <div class="blog-image" style="background-image: url('images/blog-placeholder-3.jpg')"></div>
-                        <div class="blog-content">
-                            <h3>Python for Data Analysis</h3>
-                            <p class="blog-date">March 10, 2025</p>
-                            <p class="blog-excerpt">Exploring how Python and its libraries can transform your approach to data...</p>
-                            <a href="blog/python-data-analysis.html" class="blog-link">Read More <span class="arrow">→</span></a>
+                    <!-- GitHub -->
+                    <div class="platform-card" style="--i:2;">
+                        <div class="platform-icon github-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h2>GitHub</h2>
+                            <p>Explore my open source projects, code repositories, and contributions to the developer community</p>
+                            <div class="platform-stats">
+                                <div class="stat">
+                                    <span class="stat-value">15+</span>
+                                    <span class="stat-label">Repositories</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">100+</span>
+                                    <span class="stat-label">Commits</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/vist233" target="_blank" class="platform-link">
+                                Visit My GitHub <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="platform-card" style="--i:3;">
+                        <div class="platform-icon email-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h2>Email</h2>
+                            <p>Get in touch with me directly for collaboration, questions, or professional inquiries</p>
+                            <div class="email-container">
+                                <span class="email-address">lihaocheng233@outlook.com</span>
+                                <button class="copy-email-btn" onclick="copyEmail()">Copy Email</button>
+                            </div>
+                            <a href="mailto:lihaocheng233@outlook.com" class="platform-link">
+                                Send Email <span class="arrow">→</span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="blog-navigation">
-                    <a href="blog/archives.html" class="blog-archive-link">View All Articles <span class="arrow">→</span></a>
+                <div class="contact-note">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in new projects, collaborations, and networking opportunities. Don't hesitate to reach out on any platform!</p>
                 </div>
             </div>
         </section>
@@ -130,6 +193,15 @@
                 });
             });
         });
+
+        function copyEmail() {
+            navigator.clipboard.writeText('lihaocheng233@outlook.com');
+            const btn = document.querySelector('.copy-email-btn');
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = 'Copy Email';
+            }, 2000);
+        }
     </script>
 </body>
 </html>
