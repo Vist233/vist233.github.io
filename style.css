@@ -679,9 +679,9 @@ section h2::after {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.email-icon {
-  color: #00bcd4;
-  background-color: rgba(0, 188, 212, 0.15);
+.xiaohongshu-icon {
+  color: #ff2442;
+  background-color: rgba(255, 36, 66, 0.18);
 }
 
 .platform-details {
