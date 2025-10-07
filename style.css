@@ -736,8 +736,7 @@ section h2::after {
 }
 
 .platform-link {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
@@ -747,7 +746,7 @@ section h2::after {
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
   margin-top: auto;
-  align-self: flex-start;
+  white-space: nowrap;
 }
 
 .platform-link:hover {
@@ -761,6 +760,7 @@ section h2::after {
 .platform-link .arrow {
   margin-left: 8px;
   transition: transform 0.3s ease;
+  display: inline;
 }
 
 .platform-link:hover .arrow {
