@@ -26,14 +26,71 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--dark-color);
+  background: linear-gradient(-45deg, #1a0f2e, #0f1f3d, #1a1035, #0d2847, #1e0b3d);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* 动态渐变背景动画 */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 粒子背景容器 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle 200px at 20% 50%, rgba(0, 188, 212, 0.18) 0%, transparent 70%),
+    radial-gradient(circle 180px at 80% 80%, rgba(126, 87, 194, 0.18) 0%, transparent 70%),
+    radial-gradient(circle 150px at 40% 20%, rgba(0, 188, 212, 0.15) 0%, transparent 65%),
+    radial-gradient(circle 160px at 60% 70%, rgba(126, 87, 194, 0.16) 0%, transparent 68%),
+    radial-gradient(circle 140px at 15% 85%, rgba(0, 188, 212, 0.14) 0%, transparent 65%),
+    radial-gradient(circle 170px at 90% 30%, rgba(126, 87, 194, 0.17) 0%, transparent 70%),
+    radial-gradient(circle 155px at 50% 10%, rgba(0, 188, 212, 0.15) 0%, transparent 66%),
+    radial-gradient(circle 165px at 75% 50%, rgba(126, 87, 194, 0.16) 0%, transparent 68%),
+    radial-gradient(circle 175px at 30% 90%, rgba(0, 188, 212, 0.17) 0%, transparent 69%),
+    radial-gradient(circle 145px at 95% 65%, rgba(126, 87, 194, 0.15) 0%, transparent 67%);
+  animation: particleFloat 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.55;
+  }
 }
 
 /* Main Content */
 .content {
   width: 100%;
   margin-left: 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Sections - Full screen with snap scrolling */
@@ -72,6 +129,24 @@ section h2 {
   position: relative;
   font-weight: 300;
   letter-spacing: -0.5px;
+  text-shadow: 
+    0 0 15px rgba(0, 188, 212, 0.4),
+    0 0 25px rgba(0, 188, 212, 0.2);
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 
+      0 0 15px rgba(0, 188, 212, 0.4),
+      0 0 25px rgba(0, 188, 212, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 20px rgba(0, 188, 212, 0.6),
+      0 0 35px rgba(0, 188, 212, 0.3),
+      0 0 45px rgba(0, 188, 212, 0.1);
+  }
 }
 
 section h2::after {
@@ -89,6 +164,23 @@ section h2::after {
 #home {
   background-color: var(--dark-color);
   color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加动态光效背景 */
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(0, 188, 212, 0.05) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(126, 87, 194, 0.05) 50%, transparent 70%);
+  animation: diagonalMove 15s linear infinite;
+  z-index: 0;
 }
 
 .banner {
@@ -96,6 +188,8 @@ section h2::after {
   padding: 0;
   width: 100%;
   max-width: 1400px;
+  position: relative;
+  z-index: 1;
 }
 
 .full-height {
@@ -116,7 +210,22 @@ section h2::after {
   color: transparent;
   opacity: 0;
   transform: translateY(50px);
-  animation: fadeInUp 1s ease 0.3s forwards;
+  animation: fadeInUp 1s ease 0.3s forwards, neonPulse 3s ease-in-out infinite;
+  text-shadow: 
+    0 0 10px rgba(0, 188, 212, 0.5),
+    0 0 20px rgba(0, 188, 212, 0.3),
+    0 0 30px rgba(0, 188, 212, 0.2);
+  position: relative;
+}
+
+/* 霓虹脉冲效果 */
+@keyframes neonPulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(0, 188, 212, 0.4));
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 30px rgba(0, 188, 212, 0.6));
+  }
 }
 
 .banner p {
@@ -145,8 +254,22 @@ section h2::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 30%, rgba(0, 188, 212, 0.1), transparent 70%);
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(0, 188, 212, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(126, 87, 194, 0.15), transparent 50%);
+  animation: pulseGlow 8s ease-in-out infinite;
   z-index: 0;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 #about .content-wrapper {
@@ -192,6 +315,7 @@ section h2::after {
 #blog {
   background-color: var(--dark-color);
   position: relative;
+  overflow: hidden;
 }
 
 #blog::before {
@@ -201,8 +325,20 @@ section h2::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 70% 70%, rgba(126, 87, 194, 0.1), transparent 70%);
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(0, 188, 212, 0.05) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(126, 87, 194, 0.05) 50%, transparent 70%);
+  animation: diagonalMove 15s linear infinite;
   z-index: 0;
+}
+
+@keyframes diagonalMove {
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%;
+  }
 }
 
 #blog .content-wrapper {
@@ -440,19 +576,67 @@ section h2::after {
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
   padding: 2rem;
   height: 100%;
   position: relative;
+  backdrop-filter: blur(10px);
+  animation: cardFloat calc(3s + var(--i) * 0.5s) ease-in-out infinite;
+}
+
+/* 卡片浮动动画 */
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+}
+
+.platform-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 188, 212, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+.platform-card:hover::before {
+  opacity: 1;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 .platform-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 188, 212, 0.3);
-  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-15px) scale(1.02) rotateX(5deg);
+  box-shadow: 
+    0 20px 40px rgba(0, 188, 212, 0.3),
+    0 0 60px rgba(0, 188, 212, 0.2),
+    inset 0 0 20px rgba(0, 188, 212, 0.1);
+  border-color: rgba(0, 188, 212, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .platform-icon {
@@ -468,6 +652,16 @@ section h2::after {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.platform-card:hover .platform-icon {
+  transform: rotateY(360deg) scale(1.1);
+  box-shadow: 
+    0 10px 30px rgba(0, 188, 212, 0.4),
+    0 0 40px rgba(0, 188, 212, 0.2);
 }
 
 .bilibili-icon {
@@ -488,6 +682,11 @@ section h2::after {
 .email-icon {
   color: #00bcd4;
   background-color: rgba(0, 188, 212, 0.15);
+}
+
+.platform-details {
+  position: relative;
+  z-index: 1;
 }
 
 .platform-details h2 {
@@ -896,4 +1095,132 @@ section h2::after {
   color: var(--primary-color);
   background-color: rgba(0, 188, 212, 0.1);
   border-color: rgba(0, 188, 212, 0.2);
+}
+
+/* ========== 额外炫酷特效 ========== */
+
+/* 页面滚动视差效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 添加流光边框效果 */
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 为sections添加入场动画 */
+section {
+  animation: sectionFadeIn 1s ease-out;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 添加光标追踪光晕效果（不影响点击） */
+body::after {
+  content: '';
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 增强按钮和链接的发光效果 */
+a, button {
+  position: relative;
+  overflow: hidden;
+}
+
+a::after, button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 188, 212, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+a:hover::after, button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 为文本添加微妙的呼吸效果 */
+.banner p {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 星空点缀效果 */
+.content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 15% 90%, white, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: twinkle 8s ease-in-out infinite;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    background-position: 0% 0%;
+  }
+  50% {
+    opacity: 0.5;
+    background-position: 100% 100%;
+  }
 }
