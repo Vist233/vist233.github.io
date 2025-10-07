@@ -10,16 +10,6 @@
 </head>
 
 <body>
-    <header class="side-nav">
-        <nav>
-            <ul>
-                <li><a href='#home' title="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href='#blog' title="Blog"><i class="fas fa-blog"></i></a></li>
-                <li><a href='./game.html' title="2048 Game"><i class="fas fa-gamepad"></i></a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main class="content">
         <section id="home">
             <div class="content-wrapper">
@@ -134,12 +124,10 @@
     </main>
 
     <script>
-        // Add active class to navigation links and handle intersection observers
+        // Intersection Observer for sections
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.side-nav a');
             const sections = document.querySelectorAll('section');
             
-            // Intersection Observer for sections
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -148,42 +136,14 @@
             
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Add in-view class for animation triggers
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
-                        
-                        // Update active navigation link
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
                     }
                 });
             }, observerOptions);
             
-            // Observe all sections
             sections.forEach(section => {
                 sectionObserver.observe(section);
-            });
-            
-            // Add smooth scrolling to nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    // Only apply smooth scrolling to internal links (starting with #)
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetSection = document.querySelector(href);
-                        
-                        // Smooth scroll to target section
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    // External links will work with default browser navigation
-                });
             });
         });
     </script>
