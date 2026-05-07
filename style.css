@@ -322,45 +322,51 @@ a {
 }
 
 
+/* ── Tablet (≤ 900px) ───────────────────────────────── */
 @media (max-width: 900px) {
-  .site-nav,
-  .site-footer,
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
+  /* Nav */
   .site-nav {
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
     padding: 14px 0;
+    gap: 10px;
   }
 
   .nav-links {
     width: 100%;
     overflow-x: auto;
+    gap: 20px;
   }
 
+  /* Hero: stack field below title */
   .hero {
+    grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: 40px;
+    padding: 36px 0 0;
+    gap: 28px;
   }
 
   .hero-heading {
-    font-size: clamp(42px, 14vw, 86px);
-  }
-
-  .hero-heading span {
-    white-space: normal;
+    font-size: clamp(38px, 13vw, 82px);
   }
 
   .field {
-    min-height: 320px;
+    min-height: 260px;
   }
 
-  .home-directions,
+  /* Statement: keep badge + text side-by-side */
+  .statement {
+    font-size: clamp(16px, 3.5vw, 22px);
+  }
+
   .statement-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+  }
+
+  /* Cards: 2 columns on tablet */
+  .home-directions {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .home-directions a:nth-child(-n+3),
@@ -368,12 +374,58 @@ a {
     grid-column: span 1;
   }
 
+  .home-directions a {
+    min-height: 130px;
+  }
+
+  /* Footer: stack */
   .site-footer {
     grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: auto;
+    padding: 18px 0;
     text-align: left;
   }
 
   .site-footer span:last-child {
     text-align: left;
+  }
+}
+
+/* ── Phone (≤ 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+  /* Tighter shell on phone */
+  .shell {
+    width: min(100% - 24px, var(--max));
+  }
+
+  /* Even smaller hero heading so Engineering fits */
+  .hero-heading {
+    font-size: clamp(28px, 11vw, 48px);
+  }
+
+  .field {
+    min-height: 190px;
+  }
+
+  /* Cards: 1 column on phone */
+  .home-directions {
+    grid-template-columns: 1fr;
+  }
+
+  .home-directions a {
+    min-height: 110px;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .home-directions strong {
+    font-size: clamp(18px, 6vw, 26px);
+  }
+
+  /* Reduce statement text size */
+  .statement {
+    font-size: clamp(15px, 4.5vw, 20px);
+    padding-top: 16px;
   }
 }
