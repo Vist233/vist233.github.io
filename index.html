@@ -1,153 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhangyvjing's web</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A quiet public system for agent engineering, backend systems, and visible work.">
+    <link rel="alternate" type="application/rss+xml" title="Vist Archive RSS" href="/blog/rss.xml">
     <link rel="icon" href="./assets/webIcon.png" type="image/png">
-</head>
+    <link rel="stylesheet" href="./style.css">
+    <title>Vist / Public System</title>
+  </head>
+  <body>
+    <div class="shell">
+      <nav class="site-nav" aria-label="Site navigation">
+        <a class="brand" href="/">
+          <span class="signal"></span>
+          <span>VIST / PUBLIC</span>
+        </a>
+        <div class="nav-links">
+          <a href="/blog/">Blog</a>
+          <a href="https://github.com/Vist233">GitHub</a>
+          <a href="mailto:zhangyvjing@outlook.com">Contact</a>
+        </div>
+      </nav>
 
-<body>
-    <main class="content">
-        <section id="home">
-            <div class="content-wrapper">
-                <div class="banner full-height">
-                    <h1>Hi There I am Zhang</h1>
-                    <p>Explore my thoughts, projects and journey through the world of technology</p>
-                </div>
-            </div>
+      <main class="hero">
+        <section class="hero-title">
+          <div>
+            <p class="kicker">Personal public system / agent engineering</p>
+            <h1 class="hero-heading">
+              <span>Quiet</span>
+              <span class="hollow">systems</span>
+              <span>Visible work</span>
+            </h1>
+          </div>
+          <div class="statement statement-grid">
+            <span>00</span>
+            <p>
+              A black-and-white field for agent engineering, backend systems,
+              design judgment, and the public evidence that survives outside the notebook.
+            </p>
+          </div>
         </section>
 
-        <section id="blog">
-            <div class="content-wrapper">
-                <h2>Connect With Me</h2>
-
-                <div class="platform-grid">
-                    <!-- Bilibili -->
-                    <div class="platform-card" style="--i:0;">
-                        <div class="platform-icon bilibili-icon">
-                            <i class="fab fa-bilibili"></i>
-                        </div>
-                        <div class="platform-details">
-                            <h2>Bilibili</h2>
-                            <p>Follow my Bilibili space for fresh videos, tech shares, and life updates straight from the creator</p>
-                            <div class="platform-stats">
-                                <div class="stat">
-                                    <span class="stat-value">1</span>
-                                    <span class="stat-label">Videos</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">2</span>
-                                    <span class="stat-label">Fans</span>
-                                </div>
-                            </div>
-                            <a href="https://space.bilibili.com/3546802183735742?spm_id_from=333.1007.0.0" target="_blank" class="platform-link">
-                                Visit My Bilibili <span class="arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Xiaohongshu -->
-                    <div class="platform-card" style="--i:3;">
-                        <div class="platform-icon xiaohongshu-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <div class="platform-details">
-                            <h2>Red Note</h2>
-                            <p>Discover my lifestyle notes, travel snapshots, and behind-the-scenes content on Xiaohongshu</p>
-                            <div class="platform-stats">
-                                <div class="stat">
-                                    <span class="stat-value">20+</span>
-                                    <span class="stat-label">Posts</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">New</span>
-                                    <span class="stat-label">Updates</span>
-                                </div>
-                            </div>
-                            <a href="https://www.xiaohongshu.com/user/profile/62df43aa000000001f015d03" target="_blank" class="platform-link">
-                                Visit My Xiaohongshu <span class="arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- GitHub -->
-                    <div class="platform-card" style="--i:2;">
-                        <div class="platform-icon github-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="platform-details">
-                            <h2>GitHub</h2>
-                            <p>Explore my open source projects, code repositories, and contributions to the developer community</p>
-                            <div class="platform-stats">
-                                <div class="stat">
-                                    <span class="stat-value">5+</span>
-                                    <span class="stat-label">Repositories</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">100+</span>
-                                    <span class="stat-label">Commits</span>
-                                </div>
-                            </div>
-                            <a href="https://github.com/vist233" target="_blank" class="platform-link">
-                                Visit My GitHub <span class="arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Blog -->
-                    <div class="platform-card" style="--i:1;">
-                        <div class="platform-icon bilibili-icon">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                        <div class="platform-details">
-                            <h2>My Blog</h2>
-                            <p>Read my latest articles on technology, programming insights, and development experiences</p>
-                            <div class="platform-stats">
-                                <div class="stat">
-                                    <span class="stat-value">10+</span>
-                                    <span class="stat-label">Articles</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">Latest</span>
-                                    <span class="stat-label">Updates</span>
-                                </div>
-                            </div>
-                            <a href="https://z.monolythe.shop/blog/" target="_blank" class="platform-link">
-                                Visit My Blog <span class="arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="field" aria-label="Abstract winter field">
+          <svg viewBox="0 0 760 960" role="img">
+            <path d="M0 707 C140 652 231 674 342 630 C465 581 548 561 760 594 L760 960 L0 960 Z"></path>
+            <path d="M0 743 C152 715 255 735 386 690 C509 648 618 639 760 656 L760 960 L0 960 Z"></path>
+            <line x1="119" y1="213" x2="119" y2="725"></line>
+            <line x1="388" y1="96" x2="388" y2="707"></line>
+            <line x1="603" y1="262" x2="603" y2="642"></line>
+          </svg>
+          <span class="signal"></span>
+          <span class="field-label">Winter field / structure / low noise</span>
         </section>
-    </main>
+      </main>
 
-    <script>
-        // Intersection Observer for sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.3
-            };
-            
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(section => {
-                sectionObserver.observe(section);
-            });
-        });
-    </script>
-</body>
+      <section class="home-directions" aria-label="Primary directions">
+        <a href="https://github.com/Vist233">
+          <span>01</span>
+          <strong>Engineering trace</strong>
+          <small>GitHub profile, repositories, public work.</small>
+        </a>
+        <a href="/blog/">
+          <span>02</span>
+          <strong>Writing archive</strong>
+          <small>Markdown notes generated into static HTML.</small>
+        </a>
+        <a href="mailto:zhangyvjing@outlook.com">
+          <span>03</span>
+          <strong>Contact</strong>
+          <small>Direct mail for collaboration and conversation.</small>
+        </a>
+      </section>
+
+      <footer class="site-footer">
+        <span>VIST / ARCHIVE</span>
+        <span>Quiet systems. Verifiable work.</span>
+        <span>You can subscribe to the writing through <a href="/blog/rss.xml">RSS</a>.</span>
+      </footer>
+    </div>
+  </body>
 </html>
