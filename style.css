@@ -113,11 +113,12 @@ a {
 .hero {
   min-height: calc(100svh - 58px);
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 42px;
   align-items: stretch;
   padding: 64px 0 40px;
   border-bottom: 1px solid var(--line-strong);
+  overflow: hidden;
 }
 
 .hero-title {
@@ -137,18 +138,19 @@ a {
   display: grid;
   gap: 0.04em;
   margin: 0;
-  font-size: clamp(52px, 9.2vw, 132px);
+  font-size: clamp(44px, 8vw, 120px);
   line-height: 0.9;
   font-weight: 650;
   letter-spacing: 0;
-  overflow-wrap: normal;
-  word-break: keep-all;
-  hyphens: none;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .hero-heading span {
   display: block;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .hollow {
@@ -186,9 +188,8 @@ a {
 
 .field {
   position: relative;
-  min-height: 580px;
+  min-height: 480px;
   border-left: 1px solid var(--line-strong);
-  border-right: 1px solid var(--line-strong);
   overflow: hidden;
   background:
     linear-gradient(105deg, transparent 0 38%, rgba(255, 255, 255, 0.42) 38% 43%, transparent 43% 100%),
@@ -301,21 +302,46 @@ a {
 }
 
 .social-strip {
-  min-height: 48px;
+  min-height: 56px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  border-top: 1px solid var(--line);
-  font: 11px/1 var(--font-mono);
+  gap: 24px;
+  border-top: 1px solid var(--line-strong);
+  padding: 12px 0;
+  font: 12px/1 var(--font-mono);
   text-transform: uppercase;
+  position: relative;
+}
+
+.social-strip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 28px;
+  background: var(--signal);
 }
 
 .social-strip span {
   color: var(--muted);
+  padding-left: 14px;
 }
 
 .social-strip a {
-  text-decoration-color: var(--signal);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.social-strip a:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: #050505;
 }
 
 .site-footer a {
