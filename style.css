@@ -44,9 +44,8 @@ body {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 1px),
     linear-gradient(180deg, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, transparent 0 calc(100% - 14px), var(--signal-soft) calc(100% - 14px) 100%),
     var(--paper);
-  background-size: 48px 48px, 48px 48px, auto, auto;
+  background-size: 48px 48px, 48px 48px, auto;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,9 +54,8 @@ body {
       linear-gradient(90deg, rgba(242, 242, 239, 0.04) 1px, transparent 1px),
       linear-gradient(180deg, rgba(242, 242, 239, 0.03) 1px, transparent 1px),
       radial-gradient(circle at 42% 0%, rgba(242, 242, 239, 0.07), transparent 28rem),
-      linear-gradient(90deg, transparent 0 calc(100% - 14px), var(--signal-soft) calc(100% - 14px) 100%),
       var(--paper);
-    background-size: 84px 84px, 84px 84px, auto, auto, auto;
+    background-size: 84px 84px, 84px 84px, auto, auto;
   }
 }
 
