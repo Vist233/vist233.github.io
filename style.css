@@ -138,11 +138,13 @@ a {
   gap: 0.04em;
   margin: 0;
   font-size: clamp(34px, 5.8vw, 84px);
-  line-height: 0.9;
+  line-height: 0.95;
   font-weight: 650;
   letter-spacing: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   min-width: 0;
+  padding-bottom: 0.1em;
 }
 
 .hero-heading span {
@@ -238,21 +240,26 @@ a {
   stroke-width: 1;
 }
 
-.field-label {
-  position: absolute;
-  top: 18px;
-  left: 40px;
-  z-index: 1;
-  color: var(--ink);
-  font: 11px/1.4 var(--font-mono);
-  text-transform: uppercase;
-}
-
-.field .signal {
+.field-header {
   position: absolute;
   top: 18px;
   left: 18px;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* signal inside field-header uses normal flow */
+.field-header .signal {
+  position: static;
+  flex-shrink: 0;
+}
+
+.field-label {
+  color: var(--ink);
+  font: 11px/1.4 var(--font-mono);
+  text-transform: uppercase;
 }
 
 .home-directions {
