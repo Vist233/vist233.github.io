@@ -258,11 +258,21 @@ a {
 
 .home-directions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1px;
   margin: 34px 0 42px;
   border: 1px solid var(--line-strong);
   background: var(--line-strong);
+}
+
+/* Row 1: 3 cards × span-2 = 6 cols */
+.home-directions a:nth-child(-n+3) {
+  grid-column: span 2;
+}
+
+/* Row 2: 2 cards × span-3 = 6 cols (perfect 50/50) */
+.home-directions a:nth-child(n+4) {
+  grid-column: span 3;
 }
 
 .home-directions a {
@@ -313,8 +323,10 @@ a {
 }
 
 .platform-logo {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
   flex-shrink: 0;
   opacity: 0.72;
   transition: opacity 0.15s;
@@ -363,5 +375,19 @@ a {
   .home-directions,
   .statement-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-directions a:nth-child(-n+3),
+  .home-directions a:nth-child(n+4) {
+    grid-column: span 1;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .site-footer span:last-child {
+    text-align: left;
   }
 }
