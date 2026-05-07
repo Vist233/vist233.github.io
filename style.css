@@ -171,8 +171,8 @@ a {
 }
 
 .statement-grid {
-  display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  display: flex;
+  align-items: first baseline;
   gap: 28px;
 }
 
@@ -191,9 +191,9 @@ a {
   align-self: start;
 }
 
-/* 00 statement badge: center with the text line */
+/* 00 statement badge: align-self handled by flex first-baseline */
 .statement-grid span {
-  align-self: center;
+  flex-shrink: 0;
 }
 
 .field {
@@ -345,6 +345,8 @@ a {
     width: 100%;
     overflow-x: auto;
     gap: 20px;
+    align-self: flex-end;
+    justify-content: flex-end;
   }
 
   /* Hero: stack field below title */
