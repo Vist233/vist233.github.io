@@ -300,6 +300,24 @@ a {
   text-transform: uppercase;
 }
 
+.social-strip {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  font: 11px/1 var(--font-mono);
+  text-transform: uppercase;
+}
+
+.social-strip span {
+  color: var(--muted);
+}
+
+.social-strip a {
+  text-decoration-color: var(--signal);
+}
+
 .site-footer a {
   color: var(--ink);
   text-decoration-color: var(--signal);
