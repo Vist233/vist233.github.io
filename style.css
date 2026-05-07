@@ -182,9 +182,18 @@ a {
   background: var(--signal);
   width: max-content;
   height: max-content;
-  align-self: start;
   padding: 5px 8px;
   font: 12px/1 var(--font-mono);
+}
+
+/* card number badges: pin to top of card */
+.home-directions span {
+  align-self: start;
+}
+
+/* 00 statement badge: center with the text line */
+.statement-grid span {
+  align-self: center;
 }
 
 .field {
