@@ -199,19 +199,21 @@ a {
   min-height: 480px;
   border-left: 1px solid var(--line-strong);
   overflow: hidden;
-  background:
-    linear-gradient(105deg, transparent 0 38%, rgba(255, 255, 255, 0.42) 38% 43%, transparent 43% 100%),
-    radial-gradient(circle at 36% 18%, rgba(255, 255, 255, 0.56), transparent 24%),
-    linear-gradient(180deg, #dad8d1 0%, #cfd1cd 48%, #f4f3ee 49%, #f4f3ee 100%);
+  background: var(--field);
 }
 
-@media (prefers-color-scheme: dark) {
-  .field {
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.12), transparent 18%),
-      linear-gradient(0deg, rgba(9,9,9,0.12), rgba(9,9,9,0.72)),
-      var(--field);
-  }
+.field-media {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.field-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .field::after {
@@ -221,31 +223,8 @@ a {
   background:
     repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 13%, transparent) 0 1px, transparent 1px 38px),
     linear-gradient(180deg, transparent 0 58%, color-mix(in srgb, var(--paper) 50%, transparent) 100%);
-  opacity: 0.38;
+  opacity: 0.18;
   pointer-events: none;
-}
-
-.field svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.field path:first-child {
-  fill: #d7e3e8;
-  opacity: 0.72;
-}
-
-.field path:nth-child(2) {
-  fill: #f2f2ef;
-  opacity: 0.92;
-}
-
-.field line {
-  stroke: var(--ink);
-  stroke-opacity: 0.34;
-  stroke-width: 1;
 }
 
 .field-header {
@@ -361,6 +340,10 @@ a {
 
   .field {
     min-height: 260px;
+  }
+
+  .field-media img {
+    object-position: center 44%;
   }
 
   /* Statement: keep badge + text side-by-side */
