@@ -389,17 +389,14 @@ a {
     min-height: 130px;
   }
 
-  /* Footer: stack */
+  /* Footer: keep 2-col left/right split */
   .site-footer {
-    grid-template-columns: 1fr;
-    gap: 10px;
     min-height: auto;
     padding: 18px 0;
-    text-align: left;
   }
 
   .site-footer span:last-child {
-    text-align: left;
+    text-align: right;
   }
 }
 
