@@ -148,9 +148,6 @@ a {
 
 .hero-heading span {
   display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
 }
 
 .hollow {
@@ -182,6 +179,8 @@ a {
   color: #050505;
   background: var(--signal);
   width: max-content;
+  height: max-content;
+  align-self: start;
   padding: 5px 8px;
   font: 12px/1 var(--font-mono);
 }
