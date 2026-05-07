@@ -34,11 +34,13 @@ html {
   color: var(--ink);
   font-family: var(--font-sans);
   letter-spacing: 0;
+  overflow-x: hidden;
 }
 
 body {
   min-width: 320px;
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 1px),
     linear-gradient(180deg, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 1px),
@@ -141,8 +143,7 @@ a {
   line-height: 0.95;
   font-weight: 650;
   letter-spacing: 0;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: clip;
   min-width: 0;
   padding-bottom: 0.1em;
 }
@@ -301,7 +302,6 @@ a {
 .home-directions small {
   color: var(--muted);
   font: 12px/1.5 var(--font-mono);
-  text-transform: uppercase;
 }
 
 .site-footer {
