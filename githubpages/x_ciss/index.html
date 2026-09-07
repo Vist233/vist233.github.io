@@ -1,32 +1,74 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CISS / Clinical Workspace is a static interaction prototype using synthetic data only.">
-    <title>CISS / Clinical Workspace · Prototype</title>
-    <link rel="stylesheet" href="styles.css?v=20260907">
+    <meta name="description" content="CISS 临床工作台：基于合成数据的中文交互式问诊演示。">
+    <title>CISS / 临床工作台 · 模拟演示</title>
+    <link rel="stylesheet" href="styles.css?v=20260907e">
   </head>
   <body>
     <div class="layout">
       <aside class="sidebar">
-        <a class="brand" href="/" aria-label="ZhangYvJing home">
+        <a class="brand" href="/" aria-label="返回个人主页">
           <span class="brand-mark" aria-hidden="true"></span>
           <span>
             <span class="brand-title">CISS</span>
-            <span class="brand-subtitle">CLINICAL WORKSPACE</span>
+            <span class="brand-subtitle">临床工作台</span>
           </span>
         </a>
-        <div class="sidebar-label">INTERACTION PROTOTYPE</div>
-        <nav id="nav" aria-label="Clinical workspace sections"></nav>
-        <a class="source-link" href="https://github.com/Vist233/x_ciss" target="_blank" rel="noopener noreferrer">View source repository ↗</a>
-        <div class="sidebar-foot">Synthetic data only.<br>Not a clinical system.</div>
+        <div class="sidebar-label">模拟门诊</div>
+        <nav id="nav" aria-label="临床工作台导航">
+          <button class="nav-item active" type="button"><span class="nav-step">01</span><span class="nav-copy"><strong>问诊</strong></span></button>
+          <button class="nav-item" type="button"><span class="nav-step">02</span><span class="nav-copy"><strong>开检查</strong></span></button>
+          <button class="nav-item" type="button"><span class="nav-step">03</span><span class="nav-copy"><strong>查结果</strong></span></button>
+          <button class="nav-item" type="button"><span class="nav-step">04</span><span class="nav-copy"><strong>写病历</strong></span></button>
+        </nav>
+        <a class="source-link" href="https://github.com/Vist233/x_ciss" target="_blank" rel="noopener noreferrer">查看 GitHub 源码 ↗</a>
+        <div class="sidebar-foot">仅用于流程演示。<br>不连接临床系统。</div>
       </aside>
 
       <main class="main">
         <div class="content">
-          <div id="patient-banner"></div>
-          <div id="view"></div>
+          <div id="patient-banner">
+            <section class="patient-context" aria-label="模拟患者上下文">
+              <div class="context-strip"><span class="simulation-boundary">模拟演示数据</span></div>
+              <div class="patient-context-body">
+                <div class="patient-primary">
+                  <span class="eyebrow">患者上下文</span>
+                  <h2><span class="patient-name">张三</span> <span>男 · 24 岁</span></h2>
+                  <p>耳鼻喉科门诊 · 门诊 · 本地模拟记录</p>
+                </div>
+                <dl class="patient-facts">
+                  <div><dt>门诊号</dt><dd>OPD-26020718</dd></div>
+                  <div><dt>科室</dt><dd>耳鼻喉科门诊</dd></div>
+                  <div><dt>就诊类型</dt><dd>门诊</dd></div>
+                  <div><dt>日期</dt><dd>2026-02-07</dd></div>
+                </dl>
+              </div>
+            </section>
+          </div>
+
+          <div id="view">
+            <header class="page-heading">
+              <div class="page-kicker">01 / 问诊</div>
+              <h1>问诊</h1>
+              <p>查看模拟问诊转写、录音输入和问诊摘要，然后进入开检查。</p>
+            </header>
+            <div class="consult-status"><span class="status-dot" aria-hidden="true"></span><span>录音输入中 · 模拟演示</span><span class="status-note">不会调用麦克风</span></div>
+            <div class="consult-grid">
+              <section class="panel transcript-panel">
+                <div class="panel-head"><div><span class="panel-kicker">问诊记录</span><h2>转写内容</h2></div><span class="panel-meta">模拟输入</span></div>
+                <div class="recording-console"><div class="recording-label"><span>录音输入</span><span class="recording-indicator"><i></i>模拟演示</span></div><div class="recording-grid" data-recording-grid aria-label="模拟录音信号"><span class="recording-cell" data-level="high"></span><span class="recording-cell" data-level="mid"></span><span class="recording-cell" data-level="low"></span><span class="recording-cell" data-level="low"></span><span class="recording-cell" data-level="mid"></span><span class="recording-cell" data-level="high"></span><span class="recording-cell" data-level="mid"></span><span class="recording-cell" data-level="low"></span><span class="recording-cell" data-level="low"></span><span class="recording-cell" data-level="mid"></span><span class="recording-cell" data-level="high"></span><span class="recording-cell" data-level="mid"></span></div><p>方格信号仅表示本地模拟输入，不代表真实录音。</p></div>
+                <div class="transcript"><div class="transcript-line"><time>09:10:05</time><span class="speaker">医生</span><p>最近哪里不舒服？</p></div><div class="transcript-line"><time>09:10:12</time><span class="speaker speaker-patient">患者</span><p>这一个月老是打喷嚏，鼻子特别痒。</p></div></div>
+              </section>
+              <section class="panel summary-panel">
+                <div class="panel-head"><div><span class="panel-kicker">问诊摘要</span><h2>当前上下文</h2></div><span class="panel-meta">本地生成</span></div>
+                <dl class="summary-facts"><div><dt>主诉</dt><dd>打喷嚏、鼻痒、流清涕、眼痒</dd></div><div><dt>持续时间</dt><dd>1个月</dd></div><div><dt>诱因</dt><dd>早晨 · 冷风 · 换季</dd></div><div><dt>既往史</dt><dd>以前换季时有类似症状</dd></div></dl>
+                <section class="related-cases"><div class="subsection-head"><span>相似病例</span><small>最多两条</small></div><article class="case-mini"><strong>病例 A</strong><span>症状类型、诱因相似</span></article><article class="case-mini"><strong>病例 B</strong><span>诱因与症状相似</span></article></section>
+              </section>
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -36,6 +78,6 @@
       <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"></div>
     </div>
 
-    <script src="app.js?v=20260907c"></script>
+    <script src="app.js?v=20260907e"></script>
   </body>
 </html>

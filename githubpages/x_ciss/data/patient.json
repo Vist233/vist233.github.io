@@ -1,10 +1,10 @@
 {
-    "patient_id": "DEMO-ENT-001",
-    "name": "示例患者",
-    "gender": "—",
-    "age": "—",
+    "patient_id": "OPD-26020718",
+    "name": "张三",
+    "gender": "男",
+    "age": "24 岁",
     "department": "耳鼻喉科门诊",
-    "visit_type": "静态演示",
-    "visit_date": "DEMO",
-    "chief_complaint": "阵发性喷嚏、流清涕伴鼻痒1个月"
+    "visit_type": "门诊",
+    "visit_date": "2026-02-07",
+    "chief_complaint": "阵发性喷嚏、流清涕伴鼻痒 1 个月"
 }

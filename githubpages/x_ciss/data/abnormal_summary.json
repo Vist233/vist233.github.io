@@ -1,21 +1,21 @@
 {
-    "summary": "Static prototype summary: report lines are grouped into a compact review surface.",
+    "summary": "模拟结果摘要：将报告条目整理为紧凑的查看区域。",
     "abnormal_items": [
         {
-            "name": "Eosinophil ratio",
+            "name": "嗜酸性粒细胞比例",
             "value": "8.5%"
         },
         {
-            "name": "Total IgE",
+            "name": "总 IgE",
             "value": "185 IU/mL"
         },
         {
-            "name": "Allergen sample",
-            "value": "Dust mite / demo positive"
+            "name": "过敏原样本",
+            "value": "尘螨 / 模拟阳性"
         },
         {
-            "name": "Nasal mucosa note",
-            "value": "Pale / edematous · demo text"
+            "name": "鼻黏膜记录",
+            "value": "苍白、水肿 · 模拟记录"
         }
     ]
 }
