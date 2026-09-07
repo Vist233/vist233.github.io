@@ -40,7 +40,7 @@
             "missing_item": "过敏原特异性IgE检测",
             "reason": "患者主诉典型过敏症状（阵发性喷嚏、清涕、鼻痒、眼痒、季节性），过敏原检测是明确致敏因素的核心检查。",
             "priority": "高",
-            "warning": "⚠️ 强烈建议：根据病史，患者极可能为变应性鼻炎，过敏原检测为必要检查！"
+            "warning": "Static rule example: compare this omission with the source workflow."
         },
         {
             "symptom_keywords": [
@@ -51,7 +51,7 @@
             "missing_item": "鼻内镜检查",
             "reason": "鼻内镜可直接观察鼻黏膜颜色（苍白水肿提示过敏）、鼻甲肥大程度及分泌物性状，是变应性鼻炎的重要辅助诊断。",
             "priority": "高",
-            "warning": "⚠️ 建议：鼻内镜检查有助于明确诊断并排除其他鼻腔病变。"
+            "warning": "Static rule example: compare this omission with the source workflow."
         },
         {
             "symptom_keywords": [
@@ -61,7 +61,7 @@
             "missing_item": "鼻分泌物涂片",
             "reason": "嗜酸性粒细胞计数升高可辅助变应性鼻炎诊断。",
             "priority": "中",
-            "warning": "💡 提示：鼻涂片可补充诊断依据，建议考虑。"
+            "warning": "Static rule example: compare this omission with the source workflow."
         },
         {
             "symptom_keywords": [
@@ -71,7 +71,7 @@
             "missing_item": "血常规 (CBC)",
             "reason": "血常规中嗜酸性粒细胞可能升高，但CBC对过敏性鼻炎的诊断价值有限，主要用于排除感染或贫血。",
             "priority": "低",
-            "warning": "💡 提示：血常规可作为基础筛查，但非必需。"
+            "warning": "Static rule example: compare this omission with the source workflow."
         }
     ],
     "patient_context": {
