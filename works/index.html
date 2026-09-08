@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
     <link rel="icon" href="../assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./style.css?v=20260908g">
+    <link rel="stylesheet" href="./style.css?v=20260908h">
     <title>ZhangYvJing - Works</title>
   </head>
   <body class="works-page">
@@ -62,7 +62,10 @@
                 <h3><a href="/githubpages/x_ciss/">CISS / Clinical Workspace</a></h3>
                 <p>A four-step clinical-workflow prototype that takes a consultation through orders, results, and a generated record in one continuous workspace. It uses synthetic data only: the demo is an interaction study, not a connected clinical system.</p>
               </div>
-              <a class="work-link" href="https://github.com/Vist233/x_ciss" target="_blank" rel="noopener">Repository ↗</a>
+              <div class="work-evidence">
+                <a href="/githubpages/x_ciss/">Demo ↗</a>
+                <a href="https://github.com/Vist233/x_ciss" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
             </article>
 
             <article class="work-row">
@@ -84,7 +87,7 @@
             <article class="work-row">
               <div class="work-main-copy">
                 <div class="work-type">AGENT INFRASTRUCTURE / OPEN SOURCE</div>
-                <h3>Search MCP server + agent framework</h3>
+                <h3>Search MCP server + Agent framework</h3>
                 <p>A search MCP server that combines Baidu search, AI reranking, and web-content extraction, alongside a lightweight Python framework for building tool-using agents.</p>
               </div>
               <div class="work-detail">
@@ -105,38 +108,48 @@
             <h2 id="oss-title">Open Source Contributions</h2>
           </div>
 
-          <div class="work-list">
-            <article class="work-row">
-              <div class="work-main-copy">
+          <div class="contribution-list">
+            <article class="contribution-group">
+              <div class="contribution-head">
                 <h3><a href="https://github.com/AutoMQ/automq" target="_blank" rel="noopener">AutoMQ</a></h3>
                 <p>A cloud-native streaming and storage project for Kafka-compatible workloads.</p>
               </div>
-              <div class="work-detail">
-                <p>Fixed a flaky S3Stream bandwidth-limiter test so it reliably exercises the intended behavior.</p>
+              <div class="contribution-items">
+                <div class="contribution-item">
+                  <p>Fixed a flaky S3Stream bandwidth-limiter test so it reliably exercises the intended behavior.</p>
+                  <a class="work-link" href="https://github.com/AutoMQ/automq/pull/2448" target="_blank" rel="noopener">PR #2448 ↗</a>
+                </div>
+                <div class="contribution-item">
+                  <p>Reworked constructor initialization to prevent <code>this</code> from escaping before an object is fully formed.</p>
+                  <a class="work-link" href="https://github.com/AutoMQ/automq/pull/2463" target="_blank" rel="noopener">PR #2463 ↗</a>
+                </div>
               </div>
-              <a class="work-link" href="https://github.com/AutoMQ/automq/pull/2448" target="_blank" rel="noopener">PR #2448 ↗</a>
             </article>
 
-            <article class="work-row">
-              <div class="work-main-copy">
-                <h3><a href="https://github.com/AutoMQ/automq" target="_blank" rel="noopener">AutoMQ</a></h3>
-                <p>A cloud-native streaming and storage project for Kafka-compatible workloads.</p>
-              </div>
-              <div class="work-detail">
-                <p>Reworked constructor initialization to prevent <code>this</code> from escaping before an object is fully formed.</p>
-              </div>
-              <a class="work-link" href="https://github.com/AutoMQ/automq/pull/2463" target="_blank" rel="noopener">PR #2463 ↗</a>
-            </article>
-
-            <article class="work-row">
-              <div class="work-main-copy">
+            <article class="contribution-group">
+              <div class="contribution-head">
                 <h3><a href="https://github.com/agno-agi/agno" target="_blank" rel="noopener">Agno</a></h3>
                 <p>An open-source framework for building AI agents with models, tools, and knowledge.</p>
               </div>
-              <div class="work-detail">
-                <p>Added a Baidu search toolkit and a reference integration for the framework.</p>
+              <div class="contribution-items">
+                <div class="contribution-item">
+                  <p>Added a Baidu search toolkit and a reference integration for the framework.</p>
+                  <a class="work-link" href="https://github.com/agno-agi/agno/pull/1468" target="_blank" rel="noopener">PR #1468 ↗</a>
+                </div>
               </div>
-              <a class="work-link" href="https://github.com/agno-agi/agno/pull/1468" target="_blank" rel="noopener">PR #1468 ↗</a>
+            </article>
+
+            <article class="contribution-group">
+              <div class="contribution-head">
+                <h3><a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Gemini CLI</a></h3>
+                <p>Google's open-source command-line AI agent for software-development workflows.</p>
+              </div>
+              <div class="contribution-items">
+                <div class="contribution-item">
+                  <p>Replaced three consecutive periods with the proper ellipsis character across user-facing CLI strings.</p>
+                  <a class="work-link" href="https://github.com/google-gemini/gemini-cli/pull/16587" target="_blank" rel="noopener">PR #16587 ↗</a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -152,10 +165,6 @@
               <div class="work-type">HORTICULTURAL PLANT JOURNAL / 2026</div>
               <h3><a href="https://www.sciencedirect.com/science/article/pii/S2468014126000403" target="_blank" rel="noopener">Identification of CYP89A6 as a positive regulator of glucosinolate biosynthesis in Brassica rapa via machine learning analysis of large-scale RNA-seq data</a></h3>
               <p>Co-author publication in <em>Horticultural Plant Journal</em>.</p>
-            </div>
-            <div class="work-detail">
-              <span class="detail-label">Publication status</span>
-              <p>Available online as an In Press / Journal Pre-proof article.</p>
             </div>
             <div class="work-evidence">
               <a href="https://doi.org/10.1016/j.hpj.2026.01.001" target="_blank" rel="noopener">DOI ↗</a>
