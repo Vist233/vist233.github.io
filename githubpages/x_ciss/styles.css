@@ -142,6 +142,8 @@ a { color: inherit; }
 .report-figure figcaption { margin-top: 7px; color: var(--muted); font-family: var(--font-mono); font-size: .66rem; }
 .report-figure-detail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 18px; }
 .report-figure-detail figure { min-width: 0; margin: 0; }
+.report-figure-detail img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.report-figure-detail figcaption { margin-top: 7px; color: var(--muted); font-family: var(--font-mono); font-size: .66rem; }
 
 /* 写病历 */
 .record-grid { grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); }

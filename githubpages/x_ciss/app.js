@@ -453,7 +453,12 @@ function testSnapshot() {
     modalVisible: $("#modal-mask")?.classList.contains("show") || false,
     modalText: $("#modal")?.innerText || "",
     resultRows: document.querySelectorAll(".finding-row").length,
-    reportImages: [...document.querySelectorAll(".report-panel img")].map((img) => ({ complete: img.complete, width: img.naturalWidth })),
+    reportImages: [...document.querySelectorAll(".report-panel img")].map((img) => ({
+      complete: img.complete,
+      width: img.naturalWidth,
+      renderedWidth: img.getBoundingClientRect().width,
+      containerWidth: img.closest("figure")?.getBoundingClientRect().width || 0,
+    })),
     recordTextarea: Boolean($(".record-textarea")),
     recordActions: [...document.querySelectorAll("[data-record-action]")].map((item) => item.textContent),
     horizontalOverflow: document.documentElement.scrollWidth > window.innerWidth,

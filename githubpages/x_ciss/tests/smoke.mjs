@@ -271,6 +271,14 @@ async function runSmoke() {
     assert.ok(results.resultRows >= 2);
     assert.equal(results.reportImages.length >= 1, true);
     assert.equal(results.reportImages.every((image) => image.complete && image.width > 0), true);
+    assert.equal(results.reportImages.every((image) => image.renderedWidth <= image.containerWidth + 1), true, "报告图片不得溢出其容器");
+    const screenshotDir = process.env.CISS_SCREENSHOT_DIR || DEFAULT_SCREENSHOT_DIR;
+    const resultPath = join(screenshotDir, "ciss-cn-result-1440x900.png");
+    if (process.argv.includes("--screenshots")) {
+      await mkdir(dirname(resultPath), { recursive: true });
+      const image = await client.call("Page.captureScreenshot", { format: "png", captureBeyondViewport: false, fromSurface: true });
+      await writeFile(resultPath, Buffer.from(image.data, "base64"));
+    }
 
     await goTo(client, "#record", ".record-textarea", "写病历页面");
     const record = await snapshot(client);
@@ -299,7 +307,6 @@ async function runSmoke() {
     await reloadPage(client, "桌面截图页面");
     const desktop = await snapshot(client);
     assert.equal(desktop.horizontalOverflow, false);
-    const screenshotDir = process.env.CISS_SCREENSHOT_DIR || DEFAULT_SCREENSHOT_DIR;
     const desktopPath = join(screenshotDir, "ciss-cn-consult-1440x900.png");
     if (process.argv.includes("--screenshots")) {
       await mkdir(dirname(desktopPath), { recursive: true });
@@ -324,7 +331,7 @@ async function runSmoke() {
       gates: { "0": "passed", "1": "passed", "2": "passed", "3": "passed", "4": "passed", "5": "passed" },
       desktop: { viewport: "1440x900", horizontalOverflow: desktop.horizontalOverflow },
       mobile: { viewport: "390x844", horizontalOverflow: mobile.horizontalOverflow },
-      screenshots: process.argv.includes("--screenshots") ? [desktopPath, mobilePath] : [],
+      screenshots: process.argv.includes("--screenshots") ? [resultPath, desktopPath, mobilePath] : [],
     }, null, 2));
   } finally {
     client?.close();
