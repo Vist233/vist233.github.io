@@ -196,14 +196,16 @@
 }
 
 .contribution-items {
-  margin-top: 18px;
+  display: grid;
+  gap: 6px;
+  margin-top: 24px;
 }
 
 .contribution-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 152px;
   gap: 24px;
-  padding: 12px 0;
+  padding: 0;
 }
 
 .contribution-item:hover {
