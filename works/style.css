@@ -21,7 +21,6 @@
 }
 
 .work-type,
-.evidence-label,
 .detail-label {
   font-family: var(--font-mono);
   font-size: .75rem;
@@ -30,8 +29,7 @@
   text-transform: uppercase;
 }
 
-.detail-label,
-.evidence-label {
+.detail-label {
   color: var(--muted);
 }
 
@@ -147,10 +145,6 @@
   padding-top: 0;
   font-size: .88rem;
   line-height: 1.4;
-}
-
-.evidence-label {
-  margin-bottom: 2px;
 }
 
 .work-evidence a,
